@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Exclude build artifacts and dependencies
+/build
+/build-ssr
+
+# Ignore README.md file
+README.md
