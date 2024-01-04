@@ -26,5 +26,4 @@ dist-ssr
 /build
 /build-ssr
 
-# Ignore README.md file
-README.md
+
