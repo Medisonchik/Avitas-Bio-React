@@ -1,0 +1,48 @@
+#hero{
+    background: url('./forest.jpg') center/cover no-repeat;
+    color: white;
+
+    .hero--container{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .searchBar{
+        justify-content: end;
+        .searchField{
+            width: 250px;
+            flex: none;
+        }
+    }
+
+    .hero--text{
+        min-height: 40vh;
+        .hero--title{
+            font-size: 60px;
+            font-weight: bold;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            .hero--subtitle{
+                font-size: 45px;
+                margin-top: 25px;
+            }
+
+        }
+    }
+   
+}
+
+@media screen and (max-width:576px){
+    #hero{
+        .hero--text{
+            .hero--title{
+                font-size: 35px;
+                .hero--subtitle{
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    
+}

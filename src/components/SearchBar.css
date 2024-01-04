@@ -1,0 +1,21 @@
+.search--container{
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    .searchBar{
+        justify-content: end;
+        .searchField{
+            width: 250px;
+            flex: none;
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .search--container{
+        display: flex;
+        justify-content: center;
+    }    
+}
+
+
+

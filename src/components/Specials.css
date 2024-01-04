@@ -1,0 +1,12 @@
+.section--container{
+    .section--name{
+        color: #5C7256;
+        font-size: 40px;
+        font-weight: medium;
+        margin-top: 20px; 
+        text-align: center;   
+    }
+}
+
+
+

@@ -1,0 +1,121 @@
+.item--container {
+    background-color: white;
+    a {
+        text-decoration: none;       
+    }
+    .item--breadcrumbs{
+        .breadcrumb{
+            margin-top: 5px;
+        }
+    }
+    .item--row{
+        .img--col{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .text--col{
+            display: flex;
+            align-items: self-start;
+            flex-direction: column;
+            .item--descriptiion--section{
+                display: flex;
+                flex-direction: column;
+                .item--name{
+                    color:#5C7256;
+                }
+                .item--subText{
+                    font-weight: bold;
+                }
+                .item--caution{
+                    color: #383838;
+                    margin: 5px 0;
+                }
+                .item--code{
+                    font-style: oblique;
+                    color: #383838;
+                    font-size: small;
+                    opacity: 50%;
+                }
+                .item--rating{
+                    font-style: oblique;
+                    color: #383838;
+                }
+                .item--price{
+                    font-weight: bold;
+                    font-size: 30px;
+                }
+                .item--availability{
+                    color: #383838;
+                    font-style: oblique;
+                    opacity: 70%;
+                    margin-bottom: 20px;
+                }  
+                .item--quantity{
+                    display: flex;
+                    align-items: center; 
+                    .quantity--dropdown{
+                        .custom-select{
+                            appearance: none;
+                            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13.02" viewBox="0 0 23.212 13.02"><path id="Path_8560" data-name="Path 8560" d="M0,0,10.9,10.9,0,21.8" transform="translate(22.504 0.707) rotate(90)" fill="none" stroke="grey" stroke-width="2"/></svg>') no-repeat right center;
+                        }    
+                    }
+    
+                }                         
+            }
+                      
+        }
+    }   
+
+}
+
+.item--image{
+    width: 150px;
+}
+@media screen and (max-width:576px) {
+    .item--container{
+        .item--breadcrumbs{
+            display: flex;
+            justify-content: center;
+        }   
+        .item--row{
+            .img--col{
+                align-items: center;
+                flex-direction: column;
+                .img--carousel{
+                    display: flex;
+                    flex-direction: row;
+                }
+            }
+            .text--col{
+                .item--descriptiion--section{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center; 
+                    .item--caution{
+                        text-align: center;
+                    }  
+                    .item--code{
+                        margin-bottom: 10px;
+                    }  
+                    .item--rating{
+                        font-size: medium;
+                    } 
+                    .item--list{
+                        text-align: center;
+                        padding-bottom: 5px;
+                    }  
+
+  
+                }
+            }
+
+        }     
+
+    }
+   
+    .item--image {
+        width: 100px;
+    }
+}
