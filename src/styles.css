@@ -13,3 +13,6 @@
 @import './components/BasicItemMenu.css';
 @import './components/Specials.css';
 @import './components/Footer.css';
+
+
+@import '../src/utilityFunction/AddToCartBtn.css'

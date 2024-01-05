@@ -3,6 +3,7 @@ import HomePage from './HomePage';
 import ItemPage from './ItemPage';
 
 function App() {
+  console.log('app component rendered');
   return (
     <div>
       <Routes>

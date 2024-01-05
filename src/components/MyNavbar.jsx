@@ -1,11 +1,17 @@
 import { Navbar, Nav, Button, NavbarBrand, Container, NavLink } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faCircle } from '@fortawesome/free-solid-svg-icons';
+import AddToCartBtn from '../utilityFunction/AddToCartBtn';
+
+import useCart from '../utilityFunction/useCart';
 
 
 
-function MyNavbar(props) {
+function MyNavbar({links, cartCount }) {
+  
+  
+  console.log('Navbar Cart Count:', cartCount);
   return (
     <Navbar expand="lg" className="navbar navbar-light py-3">
       <Container fluid className='navbar-container'>
@@ -21,13 +27,19 @@ function MyNavbar(props) {
         <div className="nav-btn order-lg-2">
           <Button type="button" className="btn position-relative">
             <FontAwesomeIcon className='cart' icon={faCartShopping} />
-          </Button>
+            {/* <FontAwesomeIcon className='circle' icon={faCircle} />   */}
+            {cartCount > 0 && (
+              <FontAwesomeIcon className='circle' icon={faCircle} text={'white'}>
+                {cartCount}
+              </FontAwesomeIcon>
+            )}       
+          </Button>          
         </div>
 
         <Navbar.Toggle aria-controls="navMenu" className="border-0" />
         <Navbar.Collapse id="navMenu" className="order-lg-1">
         <Nav className="text-center">
-          {props.links}
+          {links}
         </Nav>
         </Navbar.Collapse>
 

@@ -12,15 +12,21 @@ import { useParams } from 'react-router-dom';
 import {navigationLinks} from './navigationLinks'
 import {tabsData} from './tabsData'
 
+import useCart from './utilityFunction/useCart';
+
 
 function ItemPage(){
+    const { cartCount } = useCart(); 
     let navbarLinks = GenerateLinks(navigationLinks);
     let tabLinks = TabLinks(tabsData);
+
+    
 
     return(
         <>
         <MyNavbar
         links={navbarLinks}
+        cartCount={cartCount}
          />
          <Container fluid className='search--container'>
             <SearchBar />

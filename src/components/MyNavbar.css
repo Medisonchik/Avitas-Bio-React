@@ -26,15 +26,24 @@
     /* Cart */
     .nav-btn{
         margin-right: 100px;
+        position: relative;
 
         .btn{
             background-color: transparent;
             border: none;
             color: white;
-            font-size: 2rem;
+            font-size: 2rem;           
         }
         .btn:hover{
             color:aqua;
+        }
+        .circle{
+            color: red;                
+            font-size: 25px;
+            position: absolute;
+            top: 0;
+            right: 5px;
+            opacity: 80%;          
         }
     }
     /* End Cart */
