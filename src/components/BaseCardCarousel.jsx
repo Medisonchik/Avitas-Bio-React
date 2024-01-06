@@ -10,8 +10,9 @@ import AddToCartBtn from '../utilityFunction/AddToCartBtn';
 import useCart from '../utilityFunction/useCart';
 
 
-function BaseCardCarousel({items}) {
-  const { cartCount, handleAddToCart, showCart, openCart, closeCart } = useCart();
+function BaseCardCarousel({ items }) {
+  //const { cartCount, handleAddToCart, showCart, openCart, closeCart } = useCart();
+  //const { addToCart } = useCart();
 
   const responsive = {
       superLargeDesktop: {
@@ -54,10 +55,10 @@ function BaseCardCarousel({items}) {
         />
       </Link>
       <h2 className='product--name'>{item.name}</h2>
-      <div className='product--price'>{item.price}</div>
+      <div className='product--price'>${item.price.toFixed(2)}</div>
       {/* <button className='product--button'>Add to Cart</button> */}
       <AddToCartBtn
-        handleAddToCart={handleAddToCart}  
+        firebaseId={item.firebaseId}
         /* cartCount={cartCount}  */   
       />
       <p className='product--description'>{item.subText}</p>
@@ -65,7 +66,7 @@ function BaseCardCarousel({items}) {
         {Array.from({ length: 5 }, (_, i) => (
           <FontAwesomeIcon className='product--star' key={i} icon={faStar} />
         ))}
-        <span>( {item.rating} )</span>
+        <span>({item.rating})</span>
       </div>
     </div>
     );

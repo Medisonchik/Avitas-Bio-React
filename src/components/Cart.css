@@ -1,0 +1,9 @@
+.cart--container{
+    background-color: white;
+    .cart--title{
+        color: #5C7256;
+        text-align: center;
+        padding-top: 20px;
+
+    }
+}

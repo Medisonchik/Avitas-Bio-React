@@ -1,11 +1,13 @@
+import { NavLink, Nav, NavItem, Container } from 'react-bootstrap';
+import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
+import { useParams } from 'react-router-dom';
+
 import MyNavbar from './components/MyNavbar';
 import SearchBar from './components/SearchBar';
 import Tabs from './components/Tabs';
 import BasicItemMenu from './components/BasicItemMenu';
+import RecentlyViewed from './components/RecentlyViewed';
 import Footer from './components/Footer';
-import { NavLink, Nav, NavItem, Container } from 'react-bootstrap';
-import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
-import { useParams } from 'react-router-dom';
 
 
 
@@ -26,7 +28,6 @@ function ItemPage(){
         <>
         <MyNavbar
         links={navbarLinks}
-        cartCount={cartCount}
          />
          <Container fluid className='search--container'>
             <SearchBar />
@@ -37,6 +38,7 @@ function ItemPage(){
          <BasicItemMenu 
 
          />  
+         <RecentlyViewed />
         <Footer />
         </>
 

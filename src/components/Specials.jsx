@@ -1,13 +1,15 @@
-import BaseCardCarousel from "./BaseCardCarousel";
 import {Container} from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { app, firestore } from '../../firebase';
 
+import BaseCardCarousel from "./BaseCardCarousel";
 
 
 
-function Specials(){
+
+
+function Specials({ onAddToCart }){
     const [items, setItems] = useState([]);
     console.log(items);
 
@@ -27,6 +29,7 @@ function Specials(){
             <h1 className="section--name">Specials!</h1>
             <BaseCardCarousel className="carousel"
             items={items}
+            //onAddToCart={onAddToCart}
             >
             </BaseCardCarousel>
         </Container>

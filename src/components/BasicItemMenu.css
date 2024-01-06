@@ -42,6 +42,7 @@
             .item--descriptiion--section{
                 display: flex;
                 flex-direction: column;
+                width: 100%;
                 .item--name{
                     color:#5C7256;
                 }
@@ -82,13 +83,40 @@
                         }    
                     }
     
-                }                         
-            }
-                      
+                }    
+                .item--buttons{
+                    display: flex;
+                    gap: 10px;
+                    justify-content: flex-end;
+                    margin-top: 30px;                                        
+                }                     
+            }                      
         }
     }      
     .item--tabs{
         margin-top: 50px;
+        .nav-link{
+            color: #5C7256;            
+        }
+        .nav-link.active{
+            border-color: #5C7256;
+        }
+        .nav-link:hover{
+            border-color: #5C7256;
+        }
+    }
+
+    .tab-content{
+        padding-bottom: 20px;
+        .title{
+            margin-left: 20px;
+        }
+        .product--details{
+            margin-left: 20px;
+
+
+        }
+
     }
 
 }
@@ -132,12 +160,27 @@
                         text-align: center;
                         padding-bottom: 5px;
                     }  
+                    .item--buttons{
+                        flex-direction: column-reverse;
+                        gap: 20px;
+                    }
 
   
                 }
             }
 
         }     
+
+        .tab-content{
+            .title{
+                text-align: center;
+            }
+            .product--details{
+                text-align: center;  
+                margin: 20px 0px;
+            }
+    
+        }
 
     }   
 }

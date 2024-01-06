@@ -6,6 +6,7 @@
 @import './App.css';
 @import './index.css';
 @import './components/MyNavbar.css';
+@import './components/Cart.css';
 @import './components/Hero.css';
 @import './components/SearchBar.css';
 @import './components/Tabs.css';

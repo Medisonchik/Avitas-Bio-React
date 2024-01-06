@@ -1,14 +1,21 @@
 import { Navbar, Nav, Button, NavbarBrand, Container, NavLink } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faCircle } from '@fortawesome/free-solid-svg-icons';
 import AddToCartBtn from '../utilityFunction/AddToCartBtn';
 
 import useCart from '../utilityFunction/useCart';
+import { useSelector } from 'react-redux';
 
 
 
-function MyNavbar({links, cartCount }) {
+function MyNavbar({ links }) {
+  const navigate = useNavigate();
+
+  const handleCartClick = () => {
+    navigate('/home/cart');
+  };
+  const cartCount = useSelector((state) => state.cart.cartCount);
   
   
   console.log('Navbar Cart Count:', cartCount);
@@ -25,15 +32,23 @@ function MyNavbar({links, cartCount }) {
         </Navbar.Brand>
 
         <div className="nav-btn order-lg-2">
-          <Button type="button" className="btn position-relative">
+          <Button type="button" className="btn position-relative" onClick={handleCartClick}>
             <FontAwesomeIcon className='cart' icon={faCartShopping} />
             {/* <FontAwesomeIcon className='circle' icon={faCircle} />   */}
             {cartCount > 0 && (
-              <FontAwesomeIcon className='circle' icon={faCircle} text={'white'}>
-                {cartCount}
+              <FontAwesomeIcon className='circle' icon={faCircle}>
+                <span style={{ color: "white", position: "absolute", top: 0, right:15, fontSize:20 }}>
+                  {cartCount}
+                </span>   
               </FontAwesomeIcon>
-            )}       
-          </Button>          
+              
+            )}  
+            {cartCount}
+           {/*  {cartCount > 0 && (<span style={{ color: "white", position: "absolute", top: 0, right:15, fontSize:20 }}>
+                  {cartCount}
+            </span>)}      */}
+             
+          </Button>       
         </div>
 
         <Navbar.Toggle aria-controls="navMenu" className="border-0" />

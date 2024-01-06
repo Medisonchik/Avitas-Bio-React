@@ -6,6 +6,8 @@ import { firestore } from "../../firebase";
 
 import NumericDropdown from "../utilityFunction/NumericDropdown";
 import SmallCarousel from "./SmallCarousel";
+import AddToCartBtn from "../utilityFunction/AddToCartBtn";
+import AddToWishListBtn from "../utilityFunction/AddToWishListBtn";
 
 
 function BasicItemMenu() {
@@ -79,28 +81,35 @@ function BasicItemMenu() {
                         <span className="item--quantity">Quantity 
                             <NumericDropdown />
                         </span>
-                    </section>                                                       
-                    <Button></Button>
+                        <div className="item--buttons">
+                            <AddToWishListBtn />                                                      
+                            <AddToCartBtn />
+                        </div>
+                    </section>                   
                 </Col>
             </Row>
 
             <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey="product details"
             id="fill-tab-example"
             className="mb-3 item--tabs"
             fill
             >
-                <Tab eventKey="home" title="Home">
-                    Tab content for Home
+                <Tab eventKey="product details" title="Product Details">
+                    <h2 className="title">What is {item.name} ?</h2>
+                    <p className="product--details">{item.productDetails}</p>
                 </Tab>
-                <Tab eventKey="profile" title="Profile">
-                    Tab content for Profile
+                <Tab eventKey="ingredients" title="Ingredients">
+                    Tab content for Ingredients
                 </Tab>
-                <Tab eventKey="longer-tab" title="Loooonger Tab">
-                    Tab content for Loooonger Tab
+                <Tab eventKey="how to use" title="How to Use">
+                    Tab content for How To Use
                 </Tab>
-                <Tab eventKey="contact" title="Contact" disabled>
-                    Tab content for Contact
+                <Tab eventKey="reviews" title="Reviews">
+                    Tab content for Reviews
+                </Tab>
+                <Tab eventKey="QA" title="Q & A">
+                    Tab content for Q & A
                 </Tab>
             </Tabs>
 

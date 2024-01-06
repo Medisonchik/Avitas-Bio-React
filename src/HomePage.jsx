@@ -21,55 +21,34 @@ function HomePage (){
     </NavLink>
   )) */
   //const { cartCount } = useCart();  
-  const { cartCount } = useCart();
-  const [renderKey, setRenderKey] = useState(0);
 
-  const [number, setNumber] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setNumber(prevNumber => prevNumber + 1);
-    }, 100);
+  const handleAddToCart = () => {
+    setCartCount(prevCount => prevCount + 1);
+    console.log('Updated cart count', cartCount);
+  }
 
-    return () => {
-      clearTimeout(timeoutId); // Clear the timeout on component unmount
-    };
-  }, [cartCount]); // Ensure the effect runs whenever 'number' changes
-
-  console.log("render" + number);
   
-
-  useEffect(() => {
-    setRenderKey(prevKey => prevKey + 1);
-  }, [cartCount]);
-
-  console.log("home page" + cartCount);
-/*   const [localCartCount, setLocalCartCount] = useState(0);
-  console.log("home page:" + localCartCount);
-
-  useEffect(() => {
-    setLocalCartCount(cartCount);
-  }, [cartCount]); */
-
+  //console.log("home page" + cartCount);
 
   let navbarLinks = GenerateLinks(navigationLinks);
 
   let tabsLinks = TabLinks(tabsData);
 
     return(
-        <div key={renderKey}>
-        <MyNavbar
-        links={navbarLinks}
-        cartCount={cartCount}
-         />
-        <Hero />
-        <Tabs
-        tabs={tabsLinks}        
-        />
-        <Specials />
-        <BestSellers />
-        <RecentlyViewed />
-        <Footer />
+        <div>
+          <MyNavbar
+          links={navbarLinks}
+          />
+          <Hero />
+          <Tabs
+          tabs={tabsLinks}        
+          />
+          <Specials onAddToCart={handleAddToCart} />
+          <BestSellers />
+          <RecentlyViewed />
+          <Footer />
         </div>
         
     )

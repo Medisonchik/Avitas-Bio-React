@@ -2,25 +2,29 @@ import { useState } from 'react';
 
 function useCart() {
     const [cartCount, setCartCount] = useState(0);
-    const [showCart, setShowCart] = useState(false);
+    //const [showCart, setShowCart] = useState(false);
+
+    const [cartItems, setCartItems] = useState([]);
+
     console.log("cart" + cartCount);
 
-    const openCart = () => {
+ /*    const openCart = () => {
         setShowCart(true);
     };
 
     const closeCart = () => {
         setShowCart(false);
-    };
+    }; */
 
-    const handleAddToCart = () => {
+    const addToCart = (item) => {
         setCartCount((prevCount) => prevCount + 1);
-        console.log("handle add to cart" + cartCount);
+        setCartItems((prevItems) => [...prevItems, item]);
     };
 
     return {
         cartCount,
-        handleAddToCart,
+        cartItems,
+        addToCart,
     };
 }
 
