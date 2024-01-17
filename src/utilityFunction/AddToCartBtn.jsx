@@ -4,6 +4,8 @@ import { addToCart, setCartCount } from '../../redux/actions';
 import { firestore } from '../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
+import { greenBtn } from '../../styling/styling';
+
 function AddToCartBtn({ firebaseId }) {
     //when press circle apear on top of basket
     //number increasing when more items add
@@ -33,11 +35,11 @@ function AddToCartBtn({ firebaseId }) {
     };
 
     const fetchItemData = (itemData) => {
-        return { id: firebaseId, name: itemData.name, img: itemData.img, price: itemData.price };
+        return { id: firebaseId, name: itemData.name, img: itemData.img, price: itemData.price, code: itemData.code, subText: itemData.subText };
     };
 
     return (
-        <button onClick={handleBtnClick} className='addToCart--button'>Add to Cart
+        <button onClick={handleBtnClick} style={greenBtn}>Add to Cart
         </button>
 
     );

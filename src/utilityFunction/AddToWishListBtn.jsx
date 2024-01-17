@@ -1,8 +1,9 @@
 import React from 'react';
+import { whiteBtn } from '../../styling/styling';
 
 function AddToWishListBtn(props) {
     return (
-        <button className='addToWishList--button'>Save to Wish List
+        <button style={whiteBtn}>Save to Wish List
         </button>
     );
 }

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Form, Col } from 'react-bootstrap';
 
-function NumericDropdown(props) {
-    const [selectedNumber, setSelectedNumber] = useState(1);
+function NumericDropdown({ selectedNumber, onNumberChange }) {
 
     const numbers = [];
     for(let i = 0; i <= 10; i++) {
@@ -12,7 +11,7 @@ function NumericDropdown(props) {
 
     const handleNumberChange = (event) => {
         const selectedValue = parseInt(event.target.value, 10);
-        setSelectedNumber(selectedValue);
+        onNumberChange(selectedValue);
     }
     /* const handleNumberChange = (number) => {
         setSelectedNumber(number);
@@ -27,7 +26,7 @@ function NumericDropdown(props) {
                         value={selectedNumber}
                         onChange={handleNumberChange}
                         className="flex-grow-1 text-center custom-select"
-                        style={{width: '100px'}} 
+                        style={{width: '70px'}} 
                     >
                         {numbers.map((number) => (
                         <option key={number} value={number}>

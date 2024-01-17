@@ -66,7 +66,7 @@ function BaseCardCarousel({ items }) {
         {Array.from({ length: 5 }, (_, i) => (
           <FontAwesomeIcon className='product--star' key={i} icon={faStar} />
         ))}
-        <span>({item.rating})</span>
+        <span>{item.rating}</span>
       </div>
     </div>
     );
