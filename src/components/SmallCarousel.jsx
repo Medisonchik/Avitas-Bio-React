@@ -19,6 +19,10 @@ function SmallCarousel({ mainImage, smallImages }) {
       slidesToShow: 3,
       slidesToScroll: 1,
     };
+
+    if (!Array.isArray(smallImages)) {
+      smallImages = []; 
+    }
   
     return (
       <div className='images--container'>

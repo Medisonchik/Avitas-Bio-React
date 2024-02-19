@@ -5,9 +5,6 @@ import { app, firestore } from '../../firebase';
 
 import BaseCardCarousel from "./BaseCardCarousel";
 
-
-
-
 function BestSellers(){
     const [items, setItems] = useState([]);
     console.log(items);
@@ -16,7 +13,7 @@ function BestSellers(){
         const itemCollection = collection(firestore, 'items');
     
         const unsubscribe = onSnapshot(itemCollection, (querySnapshot) => {
-          const data = querySnapshot.docs.map(doc => doc.data());
+        const data = querySnapshot.docs.map(doc => doc.data());
     
           setItems(data);
         });

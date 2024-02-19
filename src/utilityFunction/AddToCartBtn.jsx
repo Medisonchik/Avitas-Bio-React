@@ -4,14 +4,14 @@ import { addToCart, setCartCount } from '../../redux/actions';
 import { firestore } from '../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
-import { greenBtn } from '../../styling/styling';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function AddToCartBtn({ firebaseId }) {
-    //when press circle apear on top of basket
-    //number increasing when more items add
-    //apears alert that item bean added to basket
+
     const dispatch = useDispatch();
     const cartCount = useSelector(state => state.cart.cartCount);
+    const [showMessage, setShowMessage] = useState(false);
 
     const handleBtnClick = async () => {
         try {
@@ -24,8 +24,13 @@ function AddToCartBtn({ firebaseId }) {
 
                 dispatch(addToCart(formattedItem));
                 dispatch(setCartCount(cartCount + 1));
-                console.log('Item added to cart:', formattedItem);
-                console.log('cart count' + cartCount);
+
+                setShowMessage(true);
+
+                setTimeout(() => {
+                    setShowMessage(false);
+                }, 5000);
+
             } else {
                 console.error('Item not found');
             }
@@ -34,13 +39,30 @@ function AddToCartBtn({ firebaseId }) {
         }
     };
 
+    const handleClose = () => {
+        setShowMessage(false);
+    }
+
     const fetchItemData = (itemData) => {
         return { id: firebaseId, name: itemData.name, img: itemData.img, price: itemData.price, code: itemData.code, subText: itemData.subText };
     };
 
     return (
-        <button onClick={handleBtnClick} style={greenBtn}>Add to Cart
-        </button>
+        <>
+            <button className='greenBtn' onClick={handleBtnClick}>Add to Cart </button>
+            {showMessage && (
+                <div className='addToCart--message'>
+                    <span class='centered-text'>
+                        Item was successfully added to your cart. You can go to 
+                        <span class='underline--text'> your cart </span> 
+                        or continue shopping
+                    </span>
+                    <span class='xmark-container'>
+                        <FontAwesomeIcon onClick={handleClose} className='xmark' icon={faXmark} />
+                    </span>
+                </div>
+            )}
+        </>
 
     );
 }

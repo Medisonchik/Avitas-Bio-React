@@ -8,23 +8,21 @@ import StarRating from './StarRating';
 
 import AddToCartBtn from '../utilityFunction/AddToCartBtn';
 import useCart from '../utilityFunction/useCart';
+import { useState } from 'react';
 
 
 function BaseCardCarousel({ items }) {
-  //const { cartCount, handleAddToCart, showCart, openCart, closeCart } = useCart();
-  //const { addToCart } = useCart();
-
   const responsive = {
       superLargeDesktop: {
-        breakpoint: { max: 4000, min: 1800 },
+        breakpoint: { max: 4000, min: 1400 },
         items: 5
       },
       desktop: {
-        breakpoint: { max: 1800, min: 800 },
-        items: 4
+        breakpoint: { max: 1400, min: 900 },
+        items: 3
       },
       tablet: {
-        breakpoint: { max: 800, min: 576 },
+        breakpoint: { max: 900, min: 576 },
         items: 2
       },
       mobile: {
@@ -32,6 +30,12 @@ function BaseCardCarousel({ items }) {
         items: 1
       }
     };
+
+    const [showMessage, setShowMessage] = useState(false);
+
+    const handleShowMessage = () => {
+      setShowMessage(true);
+    }
 
   const itemsEl = items.map((item, index) => {
     return (
@@ -50,23 +54,23 @@ function BaseCardCarousel({ items }) {
         <img
           src={item.img}
           alt={item.name}
-          className={`product--image ${item.type === 'cream' ? 'cream-image' : ''}`}
+          className={`item--image ${item.type === 'cream' ? 'cream-image' : ''}`}
           style={{ width: item.type === 'cream' ? '150px' : '100%' }}
         />
       </Link>
-      <h2 className='product--name'>{item.name}</h2>
-      <div className='product--price'>${item.price.toFixed(2)}</div>
-      {/* <button className='product--button'>Add to Cart</button> */}
+      <h2 className='item--name'>{item.name}</h2>
+      <div className='item--price'>${item.price.toFixed(2)}</div>
+      {/* <button className='item--button'>Add to Cart</button> */}
       <AddToCartBtn
         firebaseId={item.firebaseId}
         /* cartCount={cartCount}  */   
       />
-      <p className='product--description'>{item.subText}</p>
+      <p className='item--description'>{item.subText}</p>
       <div className='star--container'>
         {Array.from({ length: 5 }, (_, i) => (
-          <FontAwesomeIcon className='product--star' key={i} icon={faStar} />
+          <FontAwesomeIcon className='item--star' key={i} icon={faStar} />
         ))}
-        <span>{item.rating}</span>
+        <span>( {item.rating} )</span>
       </div>
     </div>
     );

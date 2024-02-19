@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import AddToCartBtn from '../utilityFunction/AddToCartBtn';
 import AddToWishListBtn from '../utilityFunction/AddToWishListBtn';
 
-import { textStyling, colors, price, code, greenBtn } from '../../styling/styling';
+import { textStyling, colors, price, code} from '../../styling/styling';
 import NumericDropdown from '../utilityFunction/NumericDropdown';
 import RadioButtons from '../utilityFunction/RadioButtons';
 import Check from './Check';
@@ -24,13 +24,15 @@ function Cart() {
     navigate('/home/checkout', { state: { cartItems, total } });
   };
 
+  
+
     const emptyCart = cartItems.length === 0 ? (
         <Container className='cart--container'>
           <h1 className='cart--title'>Cart is empty</h1>
           <Row className='cart'>  
             <h2 style={textStyling}>Your cart is empty!</h2>
-            <span style={textStyling}>You can click this button to start your shopping</span> 
-            <button alt="home-btn">Click me</button>     
+            <span style={{...textStyling, marginBottom: "20px"}}>You can click this button to start your shopping</span> 
+            <button className='greenBtn' alt="home-btn">Click me</button>     
           </Row>
         </Container>
       ) : (
@@ -74,7 +76,7 @@ function Cart() {
             </Col>
 
             <Col className='cart--buttons' lg={5} sm={12}>
-              <button onClick={handleBtnClick} className='checkout--btn' style={greenBtn}>Proceed to Checkout</button>
+              <button onClick={handleBtnClick} className='checkout--btn greenBtn'>Proceed to Checkout</button>
               <AddToWishListBtn />
               <div>
               <Form.Group controlId="shippingEstimate" style={{ display: "flex", alignItems: "center", flexDirection:"column", marginTop:"20px" }}>

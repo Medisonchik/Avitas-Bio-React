@@ -5,35 +5,30 @@ import { app, firestore } from '../../firebase';
 
 import BaseCardCarousel from "./BaseCardCarousel";
 
+function Specials(){
+  const [items, setItems] = useState([]);
+  console.log(items);
 
-
-
-
-function Specials({ onAddToCart }){
-    const [items, setItems] = useState([]);
-    console.log(items);
-
-    useEffect(() => {
-        const itemCollection = collection(firestore, 'items');
+  useEffect(() => {
+      const itemCollection = collection(firestore, 'items');
+  
+      const unsubscribe = onSnapshot(itemCollection, (querySnapshot) => {
+      const data = querySnapshot.docs.map(doc => doc.data());
+  
+        setItems(data);
+      });
+      return () => unsubscribe();
+    }, [firestore]);
     
-        const unsubscribe = onSnapshot(itemCollection, (querySnapshot) => {
-          const data = querySnapshot.docs.map(doc => doc.data());
-    
-          setItems(data);
-        });
-        return () => unsubscribe();
-      }, [firestore]);
-
-    return(
-        <Container className="section--container">
-            <h1 className="section--name">Specials!</h1>
-            <BaseCardCarousel className="carousel"
-            items={items}
-            //onAddToCart={onAddToCart}
-            >
-            </BaseCardCarousel>
-        </Container>
-    )
+  return(
+      <Container className="section--container">
+          <h1 className="section--name">Best Sellers!</h1>
+          <BaseCardCarousel className="carousel"
+          items={items}
+          >
+          </BaseCardCarousel>
+      </Container>
+  )
 }
 
 export default Specials;

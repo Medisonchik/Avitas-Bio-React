@@ -22,10 +22,6 @@ function MyNavbar({ links }) {
   return (
     <Navbar expand="lg" className="navbar navbar-light py-3">
       <Container fluid className='navbar-container'>
-        {/* <a className="navbar--brand d-flex justify-content-between align-items-center order-lg-0" href="#mainPage">
-            <img className="navbar--logo"src="./public/logo.png" alt="site icon" />
-            <span className="logoText text-uppercase fw-lighter ms-2">Avitas Bio</span>
-        </a> */}
         <Navbar.Brand as={Link} to="/home" className="navbar--brand d-flex justify-content-between align-items-center order-lg-0">
           <img className="navbar--logo" src="/home/logo.png" alt="site icon" />
           <span className="logoText text-uppercase fw-lighter ms-2">Avitas Bio</span>
@@ -36,18 +32,13 @@ function MyNavbar({ links }) {
             <FontAwesomeIcon className='cart' icon={faCartShopping} />
             {/* <FontAwesomeIcon className='circle' icon={faCircle} />   */}
             {cartCount > 0 && (
-              <FontAwesomeIcon className='circle' icon={faCircle}>
-                <span style={{ color: "white", position: "absolute", top: 0, right:15, fontSize:20 }}>
+              <div className='circle'>
+                <span className='count'>
                   {cartCount}
                 </span>   
-              </FontAwesomeIcon>
+              </div>
               
             )}  
-            {cartCount}
-           {/*  {cartCount > 0 && (<span style={{ color: "white", position: "absolute", top: 0, right:15, fontSize:20 }}>
-                  {cartCount}
-            </span>)}      */}
-             
           </Button>       
         </div>
 
@@ -61,38 +52,6 @@ function MyNavbar({ links }) {
       </Container>
       
     </Navbar>
-
-
-    /* <Navbar expand="lg" className="navbar navbar-dark navbar-expand-lg py-3"
-
-        <Navbar.Toggle aria-controls="navMenu" className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-          <span className="navbar-toggler-icon"></span>
-        </Navbar.Toggle>
-
-        <Navbar.Collapse className="collapse navbar-collapse order-lg-1" id="navMenu">
-          <Nav className="navbar-nav mx-auto text-center">
-            <Nav.Item className="nav-item py-2">
-              <Nav.Link className="nav-link text-light" href="#header">Home</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className="nav-item py-2">
-              <Nav.Link className="nav-link text-light" href="#products">Products</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className="nav-item py-2">
-              <Nav.Link className="nav-link text-light" href="#about">About</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className="nav-item py-2">
-              <Nav.Link className="nav-link text-light" href="#contactUs">Contact us</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className="nav-item py-2">
-              <Nav.Link className="nav-link text-light" href="#blog">Blog</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className="nav-item py-2">
-              <Nav.Link className="nav-link text-light" href="#login">Login/Register</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </div>
-    </Navbar> */
   )
 }
 

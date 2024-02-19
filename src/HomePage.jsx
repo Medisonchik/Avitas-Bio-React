@@ -11,9 +11,6 @@ import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
 import {navigationLinks} from './navigationLinks'
 import {tabsData} from './tabsData'
 
-
-import useCart from './utilityFunction/useCart';
-
 function HomePage (){
  /*  let navbarLinks = navigationLinks.map((link) => (
     <NavLink to={link.path} key={link.name}>
@@ -22,12 +19,12 @@ function HomePage (){
   )) */
   //const { cartCount } = useCart();  
 
-  const [cartCount, setCartCount] = useState(0);
+ /*  const [cartCount, setCartCount] = useState(0);
 
   const handleAddToCart = () => {
     setCartCount(prevCount => prevCount + 1);
     console.log('Updated cart count', cartCount);
-  }
+  } */
 
   
   //console.log("home page" + cartCount);
@@ -45,7 +42,7 @@ function HomePage (){
           <Tabs
           tabs={tabsLinks}        
           />
-          <Specials onAddToCart={handleAddToCart} />
+          <Specials />
           <BestSellers />
           <RecentlyViewed />
           <Footer />

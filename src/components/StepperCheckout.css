@@ -7,8 +7,8 @@
         font-size: 40px;
         .step{
             display: flex;
-            flex-direction: column;
             align-items: center;
+            flex-direction: column;
             .circle {
                 width: 40px;
                 height: 40px;
@@ -22,10 +22,6 @@
                 }
             }
         }
-        /* .fa-circle{
-            color: #53644A;
-            padding-bottom: 5px;
-        } */
     }
     .title--row{
         display: flex;
@@ -74,6 +70,19 @@
             }
         }
     }
+}
+
+.stepLabel{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+
+#dropdown-basic{
+    background-color: #53644A;
+    border: none;
+    margin-right: 10px;
+    
 }
 
 @media screen and (max-width: 576px) {

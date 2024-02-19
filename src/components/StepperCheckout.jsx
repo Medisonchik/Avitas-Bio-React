@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Dropdown } from 'react-bootstrap';
 
-import { colors, code, greyBtn, greenBtn } from '../../styling/styling';
+import { colors, code, greyBtn } from '../../styling/styling';
 import ShippingOption from '../utilityFunction/ShippingOption';
 import { useLocation } from 'react-router-dom';
 import Stepper from '../utilityFunction/Stepper';
 
+import { setCartCount } from '../../redux/actions';
+
+import { useDispatch } from 'react-redux';
+import { resetCart } from '../../redux/actions';
+
 function StepperCheckout({ items, total }) {
     const [currentStep, setCurrentStep] = useState(1);
+
+    const dispatch = useDispatch();
 
     const handleContinueToPayment = () => {
         setCurrentStep(2);
@@ -19,6 +26,7 @@ function StepperCheckout({ items, total }) {
 
     const handlePlaceOrder = () => {
         setCurrentStep(4);
+        dispatch(resetCart());
     }
     console.log("current step " + currentStep);
 
@@ -130,14 +138,14 @@ function StepperCheckout({ items, total }) {
                             onSelect={() => handleSelect('NextDay')}
                         />
                         <Row style={{display: "flex", justifyContent: "center", marginTop: "20px"}}>
-                            <button style={greenBtn} onClick={handleContinueToPayment}>Continue to payment</button>            
+                            <button className='greenBtn' onClick={handleContinueToPayment}>Continue to payment</button>            
                         </Row> 
                     </section>                     
                 );
 
             case 2:
                 return (    
-                    <section style={{marginLeft: "50px"}}>
+                    <section style={{marginLeft: ""}}>
                         <Row>
                             <h3>Payment</h3>
                             <div style={{display: "flex", justifyContent: "space-between"}}>
@@ -154,19 +162,11 @@ function StepperCheckout({ items, total }) {
                                         <Dropdown.Toggle id="dropdown-basic">
                                             Month
                                         </Dropdown.Toggle>
-
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        </Dropdown.Menu>
                                     </Dropdown>
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic">
                                             Year
                                         </Dropdown.Toggle>
-
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        </Dropdown.Menu>
                                     </Dropdown>
                                   
                                     <Form.Control placeholder="CVV" />
@@ -183,7 +183,7 @@ function StepperCheckout({ items, total }) {
                         </Row>  
 
                         <Row style={{display: "flex", justifyContent: "center", marginTop: "20px"}}>
-                            <button style={greenBtn} onClick={handleReviewYourOrder}>Review your order</button>            
+                            <button className='greenBtn' onClick={handleReviewYourOrder}>Review your order</button>            
                         </Row>                    
                     </section>
                 );
@@ -213,7 +213,7 @@ function StepperCheckout({ items, total }) {
                         </Row>
 
                         <Row style={{display: "flex", justifyContent: "center", marginTop: "20px"}}>
-                            <button style={greenBtn} onClick={handlePlaceOrder}>Place order</button>            
+                            <button className='greenBtn' onClick={handlePlaceOrder}>Place order</button>            
                         </Row>  
                     </section>                  
                 );
@@ -221,8 +221,6 @@ function StepperCheckout({ items, total }) {
             case 4:
                 return (
                     <>
-                       
-
                         {/* order summary */}
                         <section style={{}}>
                             <h1 style={{color: colors.titleColor}}>Order Summary</h1>
@@ -258,9 +256,11 @@ function StepperCheckout({ items, total }) {
         <Container className='stepper--checkout' style={{backgroundColor: colors.containerColor}}>
             {currentStep !==4 && (
                 <>
+                <Row>
                     <Stepper 
                     currentStep={currentStep}                    
                     />
+                </Row>
                     <Row className='title--row'>
                         <Col className='title--container' sm={12} lg={7}>
                             <h1 style={{color: colors.titleColor, fontWeight: "bold"}}>Checkout</h1>

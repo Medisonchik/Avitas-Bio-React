@@ -7,7 +7,7 @@ import CheckoutPage from './CheckoutPage';
 function App() {
   return (
     <div>
-      <Routes>
+        <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/home/item/:firebaseId" element={<ItemPage />} /> 
           <Route path="/home/cart" element={<CartPage />} />   

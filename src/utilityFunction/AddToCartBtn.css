@@ -1,4 +1,85 @@
-.addToCart--button:hover {
+.greenBtn {
+    background-color: #53644A;
+    color: white;
+    border: 1px solid #53644A;
+    width: 200px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  .greenBtn:hover {
+    background-color: #647854;
     color: aqua;
-    
+  }
+  
+  /* Click effect */
+  .greenBtn:active {
+    background-color: #405037;
+  }
+
+  /* Add to cart message */
+
+  .addToCart--message {
+    background-color: #D4F8E8;
+    border: 1px solid #53644A;
+    color: #5C7256;
+    text-align: center;
+    padding: 10px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
+
+.centered--text {
+    text-align: center;
+}
+
+.underline--text {
+    text-decoration: underline;
+    color: #53644A;
+    font-weight: bold;
+}
+
+.xmark--container {
+    position: absolute;
+    right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.xmark {
+    color: #489683;
+    width: 20px;
+    height: 20px;  
+    opacity: 1;  
+}
+
+.xmark:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+  
+  @media screen and(max-width: 800px) {
+    .greenBtn{
+      width: 180px;
+      background-color: red;
+    }
+
+    .xmark--container {
+      position: absolute;
+      right: 1px;
+      top: 0;
+      display: flex;
+      align-items: center;
+    }
+    
+  }
+

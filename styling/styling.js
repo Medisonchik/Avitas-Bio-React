@@ -27,7 +27,7 @@ export const textStyling = {
 ,
   }
   //green btn style
-  export const greenBtn = {
+ /*  export const greenBtn = {
     backgroundColor: "#53644A",
     color: "white",
     border: "1px solid #53644A",
@@ -42,7 +42,9 @@ export const textStyling = {
     paddingTop: "10px",
     paddingLeft: "10px",
     paddingRight: "10px",
-  };
+    cursor: "pointer",
+    transition: "background-color 0.3 ease",
+  }; */
 
   //white btn style
   export const whiteBtn = {

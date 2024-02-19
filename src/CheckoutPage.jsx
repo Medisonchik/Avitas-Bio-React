@@ -25,7 +25,6 @@ function CheckoutPage(props) {
             <MyNavbar
             links={navbarLinks}
             />
-            <SearchBar />
             <Tabs
             tabs = {tabsLinks}           
             />

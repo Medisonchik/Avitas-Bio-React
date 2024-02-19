@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { greenBtn, whiteBtn, colors, code } from '../../styling/styling';
+import { whiteBtn, colors, code } from '../../styling/styling';
 
 function Check(props) {
     return (
@@ -8,7 +8,7 @@ function Check(props) {
             <div style={{ display: "flex", flexDirection: "column", paddingRight: "8px", paddingLeft:"8px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px", alignItems: "center" }}>
                     <h3 style={{color:colors.titleColor, marginTop:"10px"}}>Subtotal</h3>
-                    <span style={{fontSize: "25px"}}>${props.sum.toFixed(2)}</span>
+                    <span style={{fontSize: "20px"}}>${props.sum.toFixed(2)}</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
                     <span>Handling</span>
@@ -31,11 +31,11 @@ function Check(props) {
             <hr />
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px", paddingRight: "8px", paddingLeft: "8px" }}>
                 <h2 style={{color: colors.titleColor}}>Total</h2>
-                <span>{props.sum}</span>
+                <span style={{fontSize: "25px", fontWeight: "bold"}}>${props.sum.toFixed(2)}</span>
             </div>
             <hr style={{borderColor:colors.borderColor}} />
             <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: "20px"}}>
-                <button style={{...greenBtn}}>Proceed to Checkout</button>
+                <button className='greenBtn'>Proceed to Checkout</button>
                 <hr />
                 <div style={{ textAlign: "center" }}>
                     <span>or</span>

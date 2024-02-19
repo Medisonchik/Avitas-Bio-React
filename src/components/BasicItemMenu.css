@@ -1,8 +1,15 @@
 .item--container {
     background-color: white;
     a {
-        text-decoration: none;       
+        text-decoration: none;
+        color: #5C7256;    
+        opacity: 1;   
     }
+    a:hover{
+        opacity: 0.5;
+
+    }
+
     .item--breadcrumbs{
         .breadcrumb{
             margin-top: 5px;
@@ -59,9 +66,16 @@
                     font-size: small;
                     opacity: 50%;
                 }
-                .item--rating{
-                    font-style: oblique;
-                    color: #383838;
+                .star--container{
+                    .item--star{
+                        color: #67765F;
+                        margin-left: 4px;
+                        margin-right: 4px;
+                    }
+                    .item--rating{
+                        font-style: oblique;
+                        color: #383838;
+                    }
                 }
                 .item--price{
                     font-weight: bold;
@@ -79,7 +93,6 @@
                     .quantity--dropdown{
                         .custom-select{
                             appearance: none;
-                            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13.02" viewBox="0 0 23.212 13.02"><path id="Path_8560" data-name="Path 8560" d="M0,0,10.9,10.9,0,21.8" transform="translate(22.504 0.707) rotate(90)" fill="none" stroke="grey" stroke-width="2"/></svg>') no-repeat right center;
                         }    
                     }
     
@@ -159,6 +172,7 @@
                     .item--list{
                         text-align: center;
                         padding-bottom: 5px;
+                        padding-top: 10px;
                     }  
                     .item--buttons{
                         flex-direction: column-reverse;

@@ -17,7 +17,7 @@ function Hero(){
         </section>
     )
 }
-export default Hero
+export default Hero;
 
 /* <!-- Header -->
 <section id = "offers" class = "py-3">

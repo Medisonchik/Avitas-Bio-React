@@ -9,7 +9,6 @@
     }
     .navbar--brand{
         text-decoration: none;
-        margin-left: 100px;
         .navbar--logo{
             width: 50px;        
         }
@@ -25,7 +24,6 @@
     }
     /* Cart */
     .nav-btn{
-        margin-right: 100px;
         position: relative;
 
         .btn{
@@ -38,11 +36,22 @@
             color:aqua;
         }
         .circle{
-            color: red;                
-            font-size: 25px;
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            display: flex; 
             position: absolute;
-            top: 0;
-            right: 5px;       
+            top: -5px;
+            right: -5px;
+
+            .count{
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }  
         }
     }
     /* End Cart */
@@ -53,6 +62,7 @@
         .navbar-nav{
             a{
                 text-decoration: none;
+                margin-bottom: 0;
             }
         }          
         .navbar--link{
@@ -79,27 +89,56 @@
 
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width:1370px) {
     #navMenu{
-        margin-right: 80px;
-        margin-left: 80px;
-        .navbar--link{
-            padding-right: 6rem;
-            padding-left: .5rem;
-        } 
+        .navbar-nav{
+            gap: 9.5rem;
+            a{
+                margin-bottom: 0;
+            }
+        }
+    } 
+}
+
+@media screen and (min-width:1200px) and (max-width: 1370px) {
+    #navMenu{
+        .navbar-nav{
+            gap: 6.5rem;
+            a{
+                margin-bottom: 0;
+            }
+        }
     }
     
 }
 
-@media screen and (max-width:576px) {
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .nav-btn{
+        margin-right: 0px;
+    }
+
     .navbar{
         .navbar--brand{
             margin-left: 0px;
         }
-        .nav-btn{
-            margin-right: 50px;
+        #navMenu{
+            .navbar-nav{
+                gap: 4rem;
+                a{
+                    margin-bottom: 0px;
+                }
+            }
         }
 
+    }
+}
+
+
+@media screen and (max-width:993px) {
+    .navbar{
+        .navbar--brand{
+            margin-left: 0px;
+        }
         #navMenu{
             .navbar-nav{
                 a{
@@ -108,78 +147,24 @@
             }
         }
 
+        .nav-btn{
+            margin-right: 8rem;
+        }
+
+    }
+
+    
+}
+
+@media screen and (max-width: 576px) {
+    .navbar{
+        .nav-btn{
+            margin-right: 5rem;
+        }
     }
     
 }
 
-/* .navbar .container-fluid #navMenu .navbar-nav .nav-item .nav-link:hover{
-    color: black!important;
-
-}
-
-.logoText{
-    color: white;
-    font-family: Helvetica;
-}
-
-.navbar-toggler-icon{
-    width: 2.5em;
-}
-.navbar-toggler:hover{
-    color: green;
-}
-.navbar-brand img{
-    width: 50px;
-}
-.navbar-brand span{
-    letter-spacing: 2px;
-    font-family: var(--lg-font);
-}
-.btn{
-    margin-right: 100px;
-    font-size: 2rem;
-    color: white;
-} */
-
-
-
-/* @media screen and (max-width:576px) {
-    .navbar .container-fluid{
-        .navbar-brand{
-            margin-left: 0px;
-        }
-
-        .btn{
-            margin-right: 50px;
-        }
-        #navMenu{
-            margin-right: 0;
-            margin-left: 0;
-
-        }
-        .collapse .nav-item{
-            padding-right:0;
-            padding-left: 0;
-            border: 1px solid white;
-
-        }
-
-    } 
-    
-}
-
-@media screen and (min-width:1200px) {
-    .navbar-brand{
-        margin-left: 100px;
-    }     
-    .nav-item{
-        border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
-        padding-right: 6rem;
-        padding-left: .5rem;
-    }
-    
-} */
-/*  */
 
 
 

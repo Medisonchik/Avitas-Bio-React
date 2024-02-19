@@ -10,11 +10,20 @@
     }
 }
 
+.row--search-container {
+    padding: 0;
+    margin-bottom: 0;
+}
+
 @media screen and (max-width:576px) {
     .search--container{
         display: flex;
         justify-content: center;
-    }    
+    } 
+    .row--search-container {
+        display: flex;
+        justify-content: center;
+    }   
 }
 
 

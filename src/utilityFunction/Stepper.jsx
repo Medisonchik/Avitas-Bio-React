@@ -24,15 +24,20 @@ function Stepper({ currentStep }) {
     
       return (
         <div className='stepper'>
-          {steps.map((step) => (
-            <div key={step.id} className="step">
-              <div className={`circle ${currentStep === step.id ? 'active' : ''}`} style={getStepColor(step.id)} />
-              <FontAwesomeIcon style={{ fontSize: '25px', marginLeft: '20px' }} icon={faChevronRight} />
-              <span style={{ ...code, color: getStepColor(step.id).border }}>{step.label}</span>
-            </div>
-          ))}
+            {steps.map((step, index) => (
+                <div key={step.id} className="step">
+                    <div style={{display: "flex", alignItems: "center"}}>
+
+                        <div className={`circle ${currentStep === step.id ? 'active' : ''}`} style={getStepColor(step.id)} />
+                        {index === steps.length - 1 && <FontAwesomeIcon style={{ fontSize: '25px', marginLeft: '20px' }} />}
+                        {index < steps.length - 1 && <FontAwesomeIcon style={{ fontSize: '25px', marginLeft: '20px' }} icon={faChevronRight} />}
+                    </div>
+                    <span style={{ ...code, color: getStepColor(step.id).border }}>{step.label}</span>
+
+                </div>
+            ))}
         </div>
-      );
+    );
 }
 
 export default Stepper;

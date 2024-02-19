@@ -3,6 +3,8 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { firestore } from "../../firebase";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 import NumericDropdown from "../utilityFunction/NumericDropdown";
 import SmallCarousel from "./SmallCarousel";
@@ -35,13 +37,21 @@ function BasicItemMenu() {
     }, [firebaseId]);
 
     if (!item) {
-    return <div>Loading...</div>;
+        return <div>Loading...</div>;
     }  
 
     const paragraphs = item.description;
-    const listItems = paragraphs.map((paragraph, index) => 
-        <li key={index}>{paragraph}</li>
-    );
+    let listItems;
+
+    if (Array.isArray(paragraphs) && paragraphs.length > 0) {
+        listItems = paragraphs.map((paragraph, index) => 
+            <li key={index}>{paragraph}</li>
+        );
+    } else {
+        listItems = null;
+    }
+
+
 
     const avaiable = 
     item.numberInStorage > 0 
@@ -52,8 +62,8 @@ function BasicItemMenu() {
         <Container className="item--container">
             <Breadcrumb className="item--breadcrumbs">
                 <Breadcrumb.Item href="#home">Avitas Bio </Breadcrumb.Item>
-                <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-                    {item.category}
+                <Breadcrumb.Item className="item--category">
+                    {!item.category  ? "Category" : item.category}
                 </Breadcrumb.Item>
                 <Breadcrumb.Item active className="item--active">{item.name}</Breadcrumb.Item>
             </Breadcrumb>
@@ -72,7 +82,12 @@ function BasicItemMenu() {
                         <span className="item--subText">{item.subText}</span>
                         <span className="item--caution">{item.caution}</span>
                         <span className="item--code">{item.code}</span>
-                        <span className="item--rating">({item.rating})</span>
+                        <div className='star--container'>
+                            {Array.from({ length: 5 }, (_, i) => (
+                            <FontAwesomeIcon className='item--star' key={i} icon={faStar} />
+                            ))}
+                            <span className="item--rating">( {item.rating} )</span>
+                        </div>                        
                         <ul className="item--list">
                             {listItems}
                         </ul>
@@ -83,7 +98,7 @@ function BasicItemMenu() {
                         </span>
                         <div className="item--buttons">
                             <AddToWishListBtn />                                                      
-                            <AddToCartBtn />
+                            <AddToCartBtn firebaseId={item.firebaseId} />
                         </div>
                     </section>                   
                 </Col>
