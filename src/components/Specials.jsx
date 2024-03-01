@@ -7,7 +7,6 @@ import BaseCardCarousel from "./BaseCardCarousel";
 
 function Specials(){
   const [items, setItems] = useState([]);
-  console.log(items);
 
   useEffect(() => {
       const itemCollection = collection(firestore, 'items');

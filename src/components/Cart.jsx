@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Container, Col, Row, Form } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import AddToCartBtn from '../utilityFunction/AddToCartBtn';
 import AddToWishListBtn from '../utilityFunction/AddToWishListBtn';
@@ -12,17 +12,30 @@ import RadioButtons from '../utilityFunction/RadioButtons';
 import Check from './Check';
 import CheckoutPage from '../CheckoutPage';
 
+import { updateCartItemQuantity } from '../../redux/actions';
+import { removeFromCart } from '../../redux/actions';
+
 function Cart() {
+  const dispatch  = useDispatch();
 
   const cartItems = useSelector(state => state.cart.cartItems);
-  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
-  console.log("items in cart" + cartItems);
+  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   const navigate = useNavigate();
 
   const handleBtnClick = () => {
     navigate('/home/checkout', { state: { cartItems, total } });
   };
+
+  const handleHomeBtnClick = () => {
+    navigate('/home/');
+  }
+
+  const handleQuantityChange = (index, newQuantity) => {
+    dispatch(updateCartItemQuantity({index, newQuantity }));
+  }
+
+  
 
   
 
@@ -32,7 +45,7 @@ function Cart() {
           <Row className='cart'>  
             <h2 style={textStyling}>Your cart is empty!</h2>
             <span style={{...textStyling, marginBottom: "20px"}}>You can click this button to start your shopping</span> 
-            <button className='greenBtn' alt="home-btn">Click me</button>     
+            <button onClick={handleHomeBtnClick} className='greenBtn' alt="home-btn">Click me</button>     
           </Row>
         </Container>
       ) : (
@@ -54,20 +67,22 @@ function Cart() {
                     <span style={{ fontSize: textStyling.fontSize, color: colors.titleColor }}>{item.name}</span><br />
                     <span>{item.subText}</span><br />
                     <span style={code}>{item.code}</span><br/>
-                    <span style={price}>${item.price.toFixed(2)}</span><br />
+                    <span style={price}>${(item.price * item.quantity).toFixed(2)}</span><br />
                   
                     <div className="cart-item-actions">
                       <span> Quantity </span>
                       {/* numberic dropdown */}
                       <NumericDropdown 
-                        selectedNumber = {item.quantity}
-                        onNumberChange = {(newQuantity) => handleQuantityChange(index, newQuantity)}                      
-                      />            
+                      itemId={item.id}
+
+                        selectedNumber={item.quantity}
+                        onNumberChange={(newQuantity) => handleQuantityChange(item.id, newQuantity)}                      
+                      />   
                     </div>
                     <RadioButtons />
                     <div style={{ textAlign: "center", margin: "20px 0" }}>
                       <hr style={{ borderTop: "2px solid black", display: "inline-block", width: "100%" }} />
-                      <span className='remove--btn' style={{ display: "inline-block", padding: "0 10px" }}>Remove this item</span>
+                      <span onClick={() => dispatch(removeFromCart(item.id))}className='remove--btn' style={{ display: "inline-block", padding: "0 10px" }}>Remove this item</span>
                       <hr style={{ borderTop: "2px solid black", display: "inline-block", width: "100%"}} />
                     </div>
                   </div> 

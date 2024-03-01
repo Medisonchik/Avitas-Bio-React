@@ -7,7 +7,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import StarRating from './StarRating';
 
 import AddToCartBtn from '../utilityFunction/AddToCartBtn';
-import useCart from '../utilityFunction/useCart';
 import { useState } from 'react';
 
 
@@ -40,17 +39,7 @@ function BaseCardCarousel({ items }) {
   const itemsEl = items.map((item, index) => {
     return (
       <div className='card' key={index}>
-        <Link to={`/home/item/${item.firebaseId}`}
-        /* to={{
-          pathname: `/home/item/${item.firebaseId}`,
-          state: { itemData: item }, // Pass the item data as state
-        }} */
-        onClick={()=> console.log(item)}
-        
-        //onClick={()=> handleItemClick(item)}
-        >
-        {console.log(`/home/item/${item.firebaseId}`)}
-        
+        <Link to={`/home/item/${item.firebaseId}`} >        
         <img
           src={item.img}
           alt={item.name}
@@ -60,7 +49,6 @@ function BaseCardCarousel({ items }) {
       </Link>
       <h2 className='item--name'>{item.name}</h2>
       <div className='item--price'>${item.price.toFixed(2)}</div>
-      {/* <button className='item--button'>Add to Cart</button> */}
       <AddToCartBtn
         firebaseId={item.firebaseId}
         /* cartCount={cartCount}  */   

@@ -35,7 +35,7 @@ function Check(props) {
             </div>
             <hr style={{borderColor:colors.borderColor}} />
             <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: "20px"}}>
-                <button className='greenBtn'>Proceed to Checkout</button>
+                <button onClick={props.handleBtnClick} className='greenBtn'>Proceed to Checkout</button>
                 <hr />
                 <div style={{ textAlign: "center" }}>
                     <span>or</span>

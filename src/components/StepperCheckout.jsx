@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 
 import { colors, code, greyBtn } from '../../styling/styling';
 import ShippingOption from '../utilityFunction/ShippingOption';
@@ -28,7 +28,6 @@ function StepperCheckout({ items, total }) {
         setCurrentStep(4);
         dispatch(resetCart());
     }
-    console.log("current step " + currentStep);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -52,6 +51,12 @@ function StepperCheckout({ items, total }) {
     const handleSelect = (method) => {
         setSelectedShippingMethod(method);
     };
+
+    const [showForm, setShowForm] = useState(false);
+    
+    const onCreditCardBtnClick = () => {
+        setShowForm(!showForm);
+    }
 
       const itemElements = items.map((item, index) => (
         <div className='stepper--cart' key={index}>
@@ -148,31 +153,32 @@ function StepperCheckout({ items, total }) {
                     <section style={{marginLeft: ""}}>
                         <Row>
                             <h3>Payment</h3>
-                            <div style={{display: "flex", justifyContent: "space-between"}}>
-                                <span>Credit card </span>
-                                <span>PayPal Checkout</span>
+                            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                                <Button className='creditCard--btn' onClick={onCreditCardBtnClick}>Credit card </Button>
+                                <span style={{fontWeight: "bold"}}>OR</span>
+                                <Button>PayPal Checkout</Button>
                             </div>
-                            <Form>
-                                <Form.Group style={{display: "flex", alignItems: "center", height: "40px", marginTop: "20px"}} className="mb-3" controlId="formGridCardNumber">
-                                    <Form.Label style={{width:"250px"}}>Credit Card Number</Form.Label>
-                                    <Form.Control style={{}} placeholder="Enter your Credit Card Number" />
-                                </Form.Group>
-                                <div style={{display: "flex", justifyContent:"flex-end", alignItems: "center"}}>
-                                    <Dropdown>
-                                        <Dropdown.Toggle id="dropdown-basic">
-                                            Month
-                                        </Dropdown.Toggle>
-                                    </Dropdown>
-                                    <Dropdown>
-                                        <Dropdown.Toggle id="dropdown-basic">
-                                            Year
-                                        </Dropdown.Toggle>
-                                    </Dropdown>
-                                  
-                                    <Form.Control placeholder="CVV" />
+                            {showForm && (
+                                <Form>
+                                    <Form.Group style={{display: "flex", alignItems: "center", height: "40px", marginTop: "20px"}} className="mb-3" controlId="formGridCardNumber">
+                                        <Form.Label style={{width:"250px"}}>Credit Card Number</Form.Label>
+                                        <Form.Control style={{}} placeholder="Enter your Credit Card Number" />
+                                    </Form.Group>
+                                    <div style={{display: "flex", justifyContent:"flex-end", alignItems: "center"}}>
+                                            <DropdownButton className="dropdown--month" title="Month">
+                                                {/* Month */}
+                                            </DropdownButton>
+                                        
+                                            <DropdownButton className="dropdown--year" title="Year">
+                                                    {/* Month */}
+                                            </DropdownButton>
                                     
-                                </div>
-                            </Form>
+                                        <Form.Control placeholder="CVV" />
+                                        
+                                    </div>
+                                </Form>
+                            )}
+
                             <div style={{marginTop: "40px"}}>
                                 <h3>Billing adress</h3>
                                 <div style={{display:"flex"}}>

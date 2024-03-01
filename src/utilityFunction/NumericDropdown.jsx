@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Form, Col } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { updateCartItemQuantity } from '../../redux/actions';
 
-function NumericDropdown({ selectedNumber, onNumberChange }) {
+function NumericDropdown({ itemId, selectedNumber, onNumberChange }) {
 
-    const numbers = [];
-    for(let i = 0; i <= 10; i++) {
-        numbers.push(i);
-    }
+    const dispatch = useDispatch();
+
+    const numbers = [...Array(11).keys()];
 
     const handleNumberChange = (event) => {
         const selectedValue = parseInt(event.target.value, 10);
-        onNumberChange(selectedValue);
+        dispatch(updateCartItemQuantity({ itemId, newQuantity: selectedValue }));
     }
-    /* const handleNumberChange = (number) => {
-        setSelectedNumber(number);
-      }; */
 
     return (
         <Form className='quantity--dropdown' style={{marginLeft:"30px"}}>

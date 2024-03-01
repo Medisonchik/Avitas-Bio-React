@@ -14,15 +14,11 @@ import Footer from './components/Footer';
 import {navigationLinks} from './navigationLinks'
 import {tabsData} from './tabsData'
 
-import useCart from './utilityFunction/useCart';
 
 
 function ItemPage(){
-    const { cartCount } = useCart(); 
     let navbarLinks = GenerateLinks(navigationLinks);
     let tabLinks = TabLinks(tabsData);
-
-    
 
     return(
         <>

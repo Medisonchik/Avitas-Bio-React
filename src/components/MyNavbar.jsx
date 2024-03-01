@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faCircle } from '@fortawesome/free-solid-svg-icons';
 import AddToCartBtn from '../utilityFunction/AddToCartBtn';
 
-import useCart from '../utilityFunction/useCart';
 import { useSelector } from 'react-redux';
 
 
@@ -18,7 +17,6 @@ function MyNavbar({ links }) {
   const cartCount = useSelector((state) => state.cart.cartCount);
   
   
-  console.log('Navbar Cart Count:', cartCount);
   return (
     <Navbar expand="lg" className="navbar navbar-light py-3">
       <Container fluid className='navbar-container'>

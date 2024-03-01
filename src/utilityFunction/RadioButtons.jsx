@@ -6,14 +6,12 @@ function RadioButtons(props) {
     const [months, setMonths] = useState(3);
   
     const handleOptionChange = (event) => {
-        console.log('selected option:', event.target.value);
       setSelectedOption(event.target.value);
       // Reset months to 1 whenever radio button changes
       setMonths(3);
     };
   
     const handleMonthChange = (event) => {
-        console.log('selected months:', event.target.value);
       setMonths(parseInt(event.target.value, 10));
     };
   

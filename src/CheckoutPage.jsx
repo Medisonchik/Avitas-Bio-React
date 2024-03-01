@@ -14,7 +14,6 @@ import { useLocation } from 'react-router-dom';
 function CheckoutPage(props) {
     const location = useLocation();
     const { cartItems, total } = location.state;
-      console.log(cartItems,total);
     let navbarLinks = GenerateLinks(navigationLinks);
     let tabsLinks = TabLinks(tabsData);
 

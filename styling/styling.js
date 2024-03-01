@@ -26,25 +26,6 @@ export const textStyling = {
     fontStyle: "oblique"
 ,
   }
-  //green btn style
- /*  export const greenBtn = {
-    backgroundColor: "#53644A",
-    color: "white",
-    border: "1px solid #53644A",
-    width: "200px",
-    paddingTop: "5px",
-    paddingBottom: "5px",
-    fontWeight: "bold",
-    fontFamily: "Arial, Helvetica, sans-serif",
-    fontSize: "15px",
-    letterSpacing: "1px",
-    paddingBottom: "10px",
-    paddingTop: "10px",
-    paddingLeft: "10px",
-    paddingRight: "10px",
-    cursor: "pointer",
-    transition: "background-color 0.3 ease",
-  }; */
 
   //white btn style
   export const whiteBtn = {

@@ -66,11 +66,17 @@
 
     .remove--btn{
         font-weight: bold;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .remove--btn:hover{
+        opacity: 0.8;
     }
 
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 900px) {
     .cart--container{
         .cart{
             .cart--content{

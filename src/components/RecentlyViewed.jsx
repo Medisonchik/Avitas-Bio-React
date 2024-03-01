@@ -8,7 +8,6 @@ import BaseCardCarousel from "./BaseCardCarousel";
 
 function RecentlyViewed({ onAddToCart }){
     const [items, setItems] = useState([]);
-    console.log(items);
 
     useEffect(() => {
         const itemCollection = collection(firestore, 'items');

@@ -12,25 +12,8 @@ import {navigationLinks} from './navigationLinks'
 import {tabsData} from './tabsData'
 
 function HomePage (){
- /*  let navbarLinks = navigationLinks.map((link) => (
-    <NavLink to={link.path} key={link.name}>
-      <div className='navbar--link'>{link.name}</div>
-    </NavLink>
-  )) */
-  //const { cartCount } = useCart();  
-
- /*  const [cartCount, setCartCount] = useState(0);
-
-  const handleAddToCart = () => {
-    setCartCount(prevCount => prevCount + 1);
-    console.log('Updated cart count', cartCount);
-  } */
-
-  
-  //console.log("home page" + cartCount);
 
   let navbarLinks = GenerateLinks(navigationLinks);
-
   let tabsLinks = TabLinks(tabsData);
 
     return(
@@ -46,9 +29,8 @@ function HomePage (){
           <BestSellers />
           <RecentlyViewed />
           <Footer />
-        </div>
-        
+        </div>        
     )
-
 } 
+
 export default HomePage
