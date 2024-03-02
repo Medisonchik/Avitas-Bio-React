@@ -2,7 +2,7 @@ import React from 'react';
 import MyNavbar from './components/MyNavbar';
 import SearchBar from './components/SearchBar';
 import Tabs from './components/Tabs';
-import StepperCheckout from './components/StepperCheckOut';
+import StepperCheckout from './components/StepperCheckout';
 import RecentlyViewed from './components/RecentlyViewed';
 import Footer from './components/Footer';
 
