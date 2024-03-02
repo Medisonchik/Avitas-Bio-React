@@ -1,5 +1,5 @@
 #hero{
-    background: url('./forest.jpg') center/cover no-repeat;
+    background: url('/forest.jpg') center/cover no-repeat;
     color: white;
 
     .hero--container{
