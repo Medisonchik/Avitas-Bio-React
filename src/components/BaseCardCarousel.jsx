@@ -39,7 +39,7 @@ function BaseCardCarousel({ items }) {
   const itemsEl = items.map((item, index) => {
     return (
       <div className='card' key={index}>
-        <Link to={`/home/item/${item.firebaseId}`} >        
+        <Link to={`/item/${item.firebaseId}`} >        
         <img
           src={item.img}
           alt={item.name}

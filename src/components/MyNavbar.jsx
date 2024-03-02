@@ -12,7 +12,7 @@ function MyNavbar({ links }) {
   const navigate = useNavigate();
 
   const handleCartClick = () => {
-    navigate('/home/cart');
+    navigate('/cart');
   };
   const cartCount = useSelector((state) => state.cart.cartCount);
   
@@ -20,8 +20,8 @@ function MyNavbar({ links }) {
   return (
     <Navbar expand="lg" className="navbar navbar-light py-3">
       <Container fluid className='navbar-container'>
-        <Navbar.Brand as={Link} to="/home" className="navbar--brand d-flex justify-content-between align-items-center order-lg-0">
-          <img className="navbar--logo" src="/home/logo.png" alt="site icon" />
+        <Navbar.Brand as={Link} to="/" className="navbar--brand d-flex justify-content-between align-items-center order-lg-0">
+          <img className="navbar--logo" src="/logo.png" alt="site icon" />
           <span className="logoText text-uppercase fw-lighter ms-2">Avitas Bio</span>
         </Navbar.Brand>
 

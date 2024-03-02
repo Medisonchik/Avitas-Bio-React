@@ -24,11 +24,11 @@ function Cart() {
   const navigate = useNavigate();
 
   const handleBtnClick = () => {
-    navigate('/home/checkout', { state: { cartItems, total } });
+    navigate('/checkout', { state: { cartItems, total } });
   };
 
   const handleHomeBtnClick = () => {
-    navigate('/home/');
+    navigate('/');
   }
 
   const handleQuantityChange = (index, newQuantity) => {

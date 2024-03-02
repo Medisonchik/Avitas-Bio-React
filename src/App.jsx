@@ -16,10 +16,10 @@ function App() {
   return (
     <div>
         <Routes>
-          <Route path="/home/" element={<HomePage />} />
-          <Route path="/home/item/:firebaseId" element={<ItemPage />} /> 
-          <Route path="/home/cart" element={<CartPage />} />   
-          <Route path="/home/checkout" element={<CheckoutPage />} />  
+          <Route path="/" element={<HomePage />} />
+          <Route path="/item/:firebaseId" element={<ItemPage />} /> 
+          <Route path="/cart" element={<CartPage />} />   
+          <Route path="/checkout" element={<CheckoutPage />} />  
         </Routes>        
     </div>
   )
