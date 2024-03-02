@@ -1,6 +1,6 @@
 export const navigationLinks = [
     {
-        path:'/',
+        path:'/home',
         name:"Home"
     },
     {

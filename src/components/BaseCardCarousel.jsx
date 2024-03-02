@@ -68,7 +68,8 @@ function BaseCardCarousel({ items }) {
         <Container>
             <Carousel
             responsive={responsive}
-            containerClass="carousel--container"            
+            containerClass="carousel--container"  
+            infinite={true}          
             >
             {itemsEl}
             </Carousel>

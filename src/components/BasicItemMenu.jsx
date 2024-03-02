@@ -1,6 +1,7 @@
 import { Container, Breadcrumb, Row, Col, Tabs, Tab, InputGroup, FormControl, Button } from "react-bootstrap"
 import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import { collection, doc, getDoc } from "firebase/firestore";
 import { firestore } from "../../firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,11 +11,15 @@ import NumericDropdown from "../utilityFunction/NumericDropdown";
 import SmallCarousel from "./SmallCarousel";
 import AddToCartBtn from "../utilityFunction/AddToCartBtn";
 import AddToWishListBtn from "../utilityFunction/AddToWishListBtn";
+import { selectItemQuantity } from "../../redux/selectors";
+
 
 
 function BasicItemMenu() {
     const { firebaseId } = useParams();
     const [item, setItem] = useState(null);
+
+    const selectedNumber = useSelector(state => selectItemQuantity(state, firebaseId));
 
     useEffect(() => {
         const fetchItemData = async () => {
@@ -94,7 +99,10 @@ function BasicItemMenu() {
                         <span className="item--price">${item.price.toFixed(2)}</span>
                         <span className="item--availability">{avaiable}</span>
                         <span className="item--quantity">Quantity 
-                            <NumericDropdown />
+                            <NumericDropdown
+                                itemId={firebaseId}
+                                selectedNumber={selectedNumber}
+                            />
                         </span>
                         <div className="item--buttons">
                             <AddToWishListBtn />                                                      
