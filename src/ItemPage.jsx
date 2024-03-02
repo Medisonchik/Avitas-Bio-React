@@ -1,5 +1,7 @@
 import { NavLink, Nav, NavItem, Container } from 'react-bootstrap';
-import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
+
+import Links from './utilityFunction/Links';
+import TabLinks from './utilityFunction/TabLinks';
 import MyNavbar from './components/MyNavbar';
 import SearchBar from './components/SearchBar';
 import Tabs from './components/Tabs';
@@ -12,7 +14,7 @@ import { tabsData } from './tabsData';
 
 
 function ItemPage(){
-    let navbarLinks = GenerateLinks(navigationLinks);
+    let navbarLinks = Links(navigationLinks);
     let tabLinks = TabLinks(tabsData);
 
     return(

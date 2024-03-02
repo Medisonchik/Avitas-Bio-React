@@ -6,12 +6,13 @@ import Tabs from './components/Tabs';
 import RecentlyViewed from './components/RecentlyViewed';
 import Footer from './components/Footer';
 
-import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
+import Links from './utilityFunction/Links';
+import TabLinks from './utilityFunction/TabLinks';
 import {navigationLinks} from './navigationLinks';
 import {tabsData} from './tabsData';
 
 function CartPage(props) {
-    let navbarLinks = GenerateLinks(navigationLinks);
+    let navbarLinks = Links(navigationLinks);
     let tabLinks = TabLinks(tabsData);
     
     return (

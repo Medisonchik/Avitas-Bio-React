@@ -6,7 +6,8 @@ import StepperCheckout from './components/StepperCheckOut';
 import RecentlyViewed from './components/RecentlyViewed';
 import Footer from './components/Footer';
 
-import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
+import Links from './utilityFunction/Links';
+import TabLinks from './utilityFunction/TabLinks';
 import { navigationLinks } from './navigationLinks';
 import { tabsData } from './tabsData';
 import { useLocation } from 'react-router-dom';
@@ -14,7 +15,7 @@ import { useLocation } from 'react-router-dom';
 function CheckoutPage(props) {
     const location = useLocation();
     const { cartItems, total } = location.state;
-    let navbarLinks = GenerateLinks(navigationLinks);
+    let navbarLinks = Links(navigationLinks);
     let tabsLinks = TabLinks(tabsData);
 
 

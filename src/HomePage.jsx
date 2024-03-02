@@ -5,13 +5,14 @@ import Specials from './components/Specials';
 import BestSellers from './components/BestSellers';
 import RecentlyViewed from './components/RecentlyViewed';
 import Footer from './components/Footer';
-import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
+import Links from './utilityFunction/Links';
+import TabLinks from './utilityFunction/TabLinks';
 import { navigationLinks } from './navigationLinks';
 import { tabsData } from './tabsData';
 
 function HomePage (){
 
-  let navbarLinks = GenerateLinks(navigationLinks);
+  let navbarLinks = Links(navigationLinks);
   let tabsLinks = TabLinks(tabsData);
 
     return(
