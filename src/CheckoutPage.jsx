@@ -18,8 +18,6 @@ function CheckoutPage(props) {
     let navbarLinks = Links(navigationLinks);
     let tabsLinks = TabLinks(tabsData);
 
-
-
     return (
         <div>
             <MyNavbar

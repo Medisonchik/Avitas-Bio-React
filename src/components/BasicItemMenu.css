@@ -134,9 +134,6 @@
 
 }
 
-/* .item--image{
-    width: 150px;
-} */
 @media screen and (max-width:576px) {
     .item--container{
         .item--breadcrumbs{
