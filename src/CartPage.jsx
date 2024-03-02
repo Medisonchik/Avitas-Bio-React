@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 
 import { GenerateLinks, TabLinks } from './utilityFunction/generateLinks';
 import {navigationLinks} from './navigationLinks';
-import {tabsData} from './tabsData'
+import {tabsData} from './tabsData';
 
 function CartPage(props) {
     let navbarLinks = GenerateLinks(navigationLinks);
